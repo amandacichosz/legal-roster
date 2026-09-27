@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" role="img" aria-labelledby="title desc">
+  <title id="title">Legal Bench LB home plate icon</title>
+  <desc id="desc">Navy home plate outline with centered navy L, blue B, and blue diamond accent.</desc>
+
+  <!-- Home plate outline -->
+  <path d="M66 58
+           Q66 42 82 42
+           H338
+           Q354 42 354 58
+           V222
+           L210 366
+           L66 222
+           Z"
+        fill="none"
+        stroke="#0B2A4A"
+        stroke-width="12"
+        stroke-linejoin="round"
+        stroke-linecap="round"/>
+
+  <!-- Centered LB monogram -->
+  <g transform="translate(129 115)">
+    <!-- L -->
+    <path d="M0 0 H25 V132 H101 V157 H0 Z"
+          fill="#0B2A4A"/>
+
+    <!-- B -->
+    <path d="M79 30
+             H120
+             C148 30 165 44 165 66
+             C165 81 158 91 146 97
+             C162 104 171 117 171 133
+             C171 159 152 175 121 175
+             H79 Z
+
+             M103 53 V84 H119
+             C133 84 141 78 141 68
+             C141 58 133 53 119 53 Z
+
+             M103 108 V152 H121
+             C137 152 146 144 146 130
+             C146 116 137 108 121 108 Z"
+          fill="#1E73E8"/>
+  </g>
+
+  <!-- Diamond accent -->
+  <rect x="197" y="301" width="26" height="26"
+        transform="rotate(45 210 314)"
+        fill="#1E73E8"/>
+</svg>

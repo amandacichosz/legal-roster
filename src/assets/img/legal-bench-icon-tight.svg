@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 440 440"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Legal Bench icon</title>
+  <desc id="desc">Baseball diamond icon with LB monogram.</desc>
+
+  <!-- Baseball diamond -->
+  <g transform="translate(220 210)">
+    <!-- field lines -->
+    <path d="M0 -150 L150 0"
+          fill="none" stroke="#0B2A4A" stroke-width="11" stroke-linecap="square"/>
+    <path d="M150 0 L0 150"
+          fill="none" stroke="#0B2A4A" stroke-width="11" stroke-linecap="square"/>
+    <path d="M0 150 L-150 0"
+          fill="none" stroke="#0B2A4A" stroke-width="11" stroke-linecap="square"/>
+    <path d="M-150 0 L0 -150"
+          fill="none" stroke="#0B2A4A" stroke-width="11" stroke-linecap="square"/>
+
+    <!-- bases -->
+    <rect x="-16" y="-166" width="32" height="32"
+          transform="rotate(45 0 -150)"
+          fill="#0B2A4A"/>
+    <rect x="-166" y="-16" width="32" height="32"
+          transform="rotate(45 -150 0)"
+          fill="#0B2A4A"/>
+    <rect x="134" y="-16" width="32" height="32"
+          transform="rotate(45 150 0)"
+          fill="#0B2A4A"/>
+
+    <!-- home plate -->
+    <path d="M-26 132 H26 V154 L0 178 L-26 154 Z"
+          fill="#1E73E8"/>
+
+    <!-- LB monogram -->
+    <g transform="translate(-52 -58)">
+      <!-- L -->
+      <path d="M0 0 H22 V96 H76 V118 H0 Z"
+            fill="#0B2A4A"/>
+
+      <!-- smaller B -->
+      <path d="M60 36 H91
+               C108 36 119 45 119 59
+               C119 69 114 76 106 80
+               C116 84 122 92 122 103
+               C122 120 110 131 91 131
+               H60 Z
+               M78 53 V73 H89
+               C98 73 103 69 103 62
+               C103 56 98 53 89 53 Z
+               M78 88 V114 H90
+               C100 114 106 109 106 101
+               C106 93 100 88 90 88 Z"
+            fill="#1E73E8"/>
+    </g>
+  </g>
+</svg>

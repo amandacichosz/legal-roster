@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Legal Bench logo</title>
+  <desc id="desc">Minimal baseball diamond logo with an LB monogram and Legal Bench wordmark.</desc>
+
+  <defs>
+    <style>
+      .navy { fill: #0B2A4A; }
+      .blue { fill: #1E73E8; }
+      .navy-stroke { stroke: #0B2A4A; }
+      text { font-family: Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Baseball diamond -->
+  <g transform="translate(600 325)">
+    <!-- field lines -->
+    <path d="M0 -170 L170 0"
+          fill="none" stroke="#0B2A4A" stroke-width="12" stroke-linecap="square"/>
+    <path d="M170 0 L0 170"
+          fill="none" stroke="#0B2A4A" stroke-width="12" stroke-linecap="square"/>
+    <path d="M0 170 L-170 0"
+          fill="none" stroke="#0B2A4A" stroke-width="12" stroke-linecap="square"/>
+    <path d="M-170 0 L0 -170"
+          fill="none" stroke="#0B2A4A" stroke-width="12" stroke-linecap="square"/>
+
+    <!-- bases -->
+    <rect x="-18" y="-188" width="36" height="36"
+          transform="rotate(45 0 -170)" fill="#0B2A4A"/>
+    <rect x="-188" y="-18" width="36" height="36"
+          transform="rotate(45 -170 0)" fill="#0B2A4A"/>
+    <rect x="152" y="-18" width="36" height="36"
+          transform="rotate(45 170 0)" fill="#0B2A4A"/>
+
+    <!-- home plate -->
+    <path d="M-28 150 H28 V174 L0 198 L-28 174 Z"
+          fill="#1E73E8"/>
+
+    <!-- LB monogram -->
+    <g transform="translate(-54 -55)">
+      <!-- L -->
+      <path d="M0 0 H22 V100 H78 V122 H0 Z"
+            fill="#0B2A4A"/>
+
+      <!-- smaller B -->
+      <path d="M62 38 H94
+               C112 38 123 47 123 62
+               C123 72 118 79 110 83
+               C120 87 126 95 126 106
+               C126 123 114 134 94 134
+               H62 Z
+               M80 55 V76 H92
+               C101 76 106 72 106 65
+               C106 58 101 55 92 55 Z
+               M80 91 V117 H93
+               C103 117 109 112 109 104
+               C109 96 103 91 93 91 Z"
+            fill="#1E73E8"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(0 690)">
+    <line x1="95" y1="0" x2="195" y2="0" stroke="#0B2A4A" stroke-width="6"/>
+
+    <text x="600" y="28"
+          text-anchor="middle"
+          font-size="76"
+          font-weight="700"
+          letter-spacing="9">
+      <tspan fill="#0B2A4A">LEGAL </tspan>
+      <tspan fill="#1E73E8">BENCH</tspan>
+    </text>
+
+    <line x1="1005" y1="0" x2="1105" y2="0" stroke="#0B2A4A" stroke-width="6"/>
+  </g>
+</svg>
