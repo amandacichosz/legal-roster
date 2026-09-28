@@ -12,9 +12,11 @@ describe('App', () => {
     setActivePinia(pinia)
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue({
+      vi.fn<() => Promise<{ ok: boolean; json: () => Promise<{ error: string }> }>>().mockResolvedValue({
         ok: false,
-        json: vi.fn().mockResolvedValue({ error: 'authentication required' }),
+        json: vi.fn<() => Promise<{ error: string }>>().mockResolvedValue({
+          error: 'authentication required',
+        }),
       }),
     )
   })
