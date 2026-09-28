@@ -1,10 +1,19 @@
 import { supabase } from '@/lib/supabase'
 
+const apiBaseUrl = (
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.PROD ? 'https://legal-roster-api.onrender.com' : '')
+).replace(/\/$/, '')
+
+function apiUrl(path: string): string {
+  return `${apiBaseUrl}${path}`
+}
+
 export async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const isFormData = options.body instanceof FormData
   const { data } = await supabase.auth.getSession()
   const accessToken = data.session?.access_token
-  const response = await fetch(path, {
+  const response = await fetch(apiUrl(path), {
     ...options,
     credentials: 'include',
     headers: {
@@ -37,7 +46,7 @@ export async function download(path: string): Promise<void> {
   const accessToken = data.session?.access_token
   if (!accessToken) throw new Error('Authentication required')
 
-  const response = await fetch(path, {
+  const response = await fetch(apiUrl(path), {
     headers: { Authorization: `Bearer ${accessToken}` },
   })
   if (!response.ok) {
