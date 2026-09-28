@@ -10,6 +10,7 @@ import type { Candidate } from '@/api/candidates'
 const candidates = ref<Candidate[]>([])
 const loading = ref(false)
 const error = ref<string | null>(null)
+const downloadingResumeID = ref<number | null>(null)
 
 const hiredCandidates = computed(() =>
   candidates.value.filter((candidate) => candidate.status.toLowerCase() === 'hired'),
@@ -75,6 +76,19 @@ function candidateYears(candidate: Candidate) {
 
 function sourceJob(candidate: Candidate) {
   return candidate.source_job_title || candidate.role || 'Source job not recorded'
+}
+
+async function downloadResume(candidate: Candidate) {
+  if (!candidate.resume_url) return
+  downloadingResumeID.value = candidate.id
+  error.value = null
+  try {
+    await candidatesApi.downloadResume(candidate.resume_url)
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : 'Unable to download resume'
+  } finally {
+    downloadingResumeID.value = null
+  }
 }
 
 function topItems(values: string[] | undefined, limit = 4) {
@@ -209,14 +223,12 @@ onMounted(loadCandidates)
                 />
                 <Button
                   v-if="candidate.resume_url"
-                  as="a"
                   label="Resume"
-                  icon="pi pi-external-link"
+                  icon="pi pi-download"
                   size="small"
                   outlined
-                  :href="candidate.resume_url"
-                  target="_blank"
-                  rel="noreferrer"
+                  :loading="downloadingResumeID === candidate.id"
+                  @click="downloadResume(candidate)"
                 />
               </div>
             </div>
@@ -239,7 +251,11 @@ onMounted(loadCandidates)
                 <div>
                   <p class="text-xs font-semibold uppercase text-ink-muted">Placement signal</p>
                   <p class="mt-2 text-sm leading-6 text-ink-muted">
-                    {{ candidate.availability_status === 'available' ? 'Available now' : formatStatus(candidate.availability_status) }}
+                    {{
+                      candidate.availability_status === 'available'
+                        ? 'Available now'
+                        : formatStatus(candidate.availability_status)
+                    }}
                     · Contract {{ formatStatus(candidate.contract_status) }}
                   </p>
                 </div>
@@ -325,7 +341,8 @@ onMounted(loadCandidates)
               severity="warn"
               :closable="false"
             >
-              Resume parsing needs review: {{ candidate.resume_parse.error || 'No parser details recorded.' }}
+              Resume parsing needs review:
+              {{ candidate.resume_parse.error || 'No parser details recorded.' }}
             </Message>
             <Message
               v-else-if="candidate.resume_url && !candidate.resume_parse"
@@ -342,14 +359,11 @@ onMounted(loadCandidates)
               Resume parsing is in progress.
             </Message>
 
-            <div
-              v-if="candidate.cover_letter"
-              class="border-t border-border-soft pt-4"
-            >
+            <div v-if="candidate.cover_letter" class="border-t border-border-soft pt-4">
               <p class="text-xs font-semibold uppercase text-ink-muted">Applicant note</p>
               <p class="mt-2 text-sm leading-6 text-ink-muted">
                 {{ candidate.cover_letter }}
-                </p>
+              </p>
             </div>
           </div>
         </template>

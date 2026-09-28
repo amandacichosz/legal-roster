@@ -1,4 +1,4 @@
-import { request } from '@/api/client'
+import { download, request } from '@/api/client'
 
 export interface Candidate {
   id: number
@@ -42,4 +42,8 @@ export interface CandidateResumeParse {
 
 export function listCandidates() {
   return request<Candidate[]>('/api/candidates', { method: 'GET' })
+}
+
+export function downloadResume(resumeURL: string) {
+  return download(resumeURL)
 }

@@ -1,5 +1,5 @@
 {
-  "name": "legal-bench",
+  "name": "legal-roster",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@primevue/themes": "^4.5.4",
+    "@supabase/supabase-js": "^2.117.2",
     "pinia": "^4.0.2",
     "primeicons": "^8.0.0",
     "primevue": "^4.5.5",

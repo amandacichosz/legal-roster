@@ -5,7 +5,7 @@ import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 import Message from 'primevue/message'
 import Password from 'primevue/password'
-import logo from '@/assets/img/logo.png'
+import logo from '@/assets/img/legal-roster.png'
 import { useAuthStore } from '@/stores/auth'
 
 const auth = useAuthStore()
@@ -33,9 +33,9 @@ async function submit() {
   <main class="grid min-h-screen bg-paper px-5 py-8 lg:grid-cols-[1fr_1.1fr] lg:px-0 lg:py-0">
     <section class="hidden border-r border-border-soft bg-surface-muted px-10 py-12 lg:flex lg:flex-col lg:justify-between">
       <RouterLink to="/" class="flex items-center gap-3">
-        <img class="h-14" :src="logo" alt="Legal Bench" />
+        <img class="h-14" :src="logo" alt="Legal Roster" />
         <span>
-          <span class="block text-lg font-semibold text-ink">Legal Bench</span>
+          <span class="block text-lg font-semibold text-ink">Legal Roster</span>
           <span class="block text-sm text-ink-muted">Evaluation workspace</span>
         </span>
       </RouterLink>
@@ -48,14 +48,14 @@ async function submit() {
         </p>
       </div>
 
-      <p class="text-sm text-ink-muted">New accounts are created from invitation links.</p>
+      <p class="text-sm text-ink-muted">Accounts are managed through Supabase Auth.</p>
     </section>
 
     <section class="mx-auto flex w-full max-w-md flex-col justify-center">
       <div class="mb-9 flex items-center gap-3 lg:hidden">
-        <img class="h-12" :src="logo" alt="Legal Bench" />
+        <img class="h-12" :src="logo" alt="Legal Roster" />
         <span>
-          <span class="block text-base font-semibold text-ink">Legal Bench</span>
+          <span class="block text-base font-semibold text-ink">Legal Roster</span>
           <span class="block text-xs text-ink-muted">Evaluation workspace</span>
         </span>
       </div>

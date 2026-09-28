@@ -1,7 +1,7 @@
 import { definePreset } from '@primevue/themes'
 import Aura from '@primevue/themes/aura'
 
-const legalBenchPreset = definePreset(Aura, {
+const legalRosterPreset = definePreset(Aura, {
   semantic: {
     primary: {
       50: '#edf7ff',
@@ -68,4 +68,4 @@ const legalBenchPreset = definePreset(Aura, {
   },
 })
 
-export default legalBenchPreset
+export default legalRosterPreset

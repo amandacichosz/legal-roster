@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 
-const ActivateView = () => import('@/views/ActivateView.vue')
 const ApplicantsView = () => import('@/views/ApplicantsView.vue')
 const CandidatesView = () => import('@/views/CandidatesView.vue')
 const DashboardView = () => import('@/views/DashboardView.vue')
@@ -17,12 +16,6 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginView,
-      meta: { public: true },
-    },
-    {
-      path: '/activate',
-      name: 'activate',
-      component: ActivateView,
       meta: { public: true },
     },
     {
@@ -47,19 +40,19 @@ const router = createRouter({
       path: '/users',
       name: 'users',
       component: UsersView,
-      meta: { requiresAuth: true, requiresPlatformAdmin: true },
+      meta: { requiresAuth: true, requiresAdmin: true },
     },
     {
       path: '/admin/jobs',
       name: 'admin-jobs',
       component: JobsAdminView,
-      meta: { requiresAuth: true, requiresPlatformAdmin: true },
+      meta: { requiresAuth: true, requiresAdmin: true },
     },
     {
       path: '/admin/applicants',
       name: 'admin-applicants',
       component: ApplicantsView,
-      meta: { requiresAuth: true, requiresPlatformAdmin: true },
+      meta: { requiresAuth: true, requiresAdmin: true },
     },
     {
       path: '/applicants',
@@ -76,11 +69,11 @@ router.beforeEach(async (to) => {
     return { name: 'login', query: { redirect: to.fullPath } }
   }
 
-  if (to.meta.requiresPlatformAdmin && !auth.isPlatformAdmin) {
+  if (to.meta.requiresAdmin && !auth.isAdmin) {
     return { name: 'dashboard' }
   }
 
-  if ((to.name === 'login' || to.name === 'activate') && auth.isAuthenticated) {
+  if (to.name === 'login' && auth.isAuthenticated) {
     return { name: 'dashboard' }
   }
 

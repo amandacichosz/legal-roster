@@ -6,7 +6,7 @@ import 'primeicons/primeicons.css'
 import App from './App.vue'
 import router from './router'
 import './assets/tailwind.css'
-import legalBenchPreset from './theme/legalBenchPreset'
+import legalRosterPreset from './theme/legalRosterPreset'
 
 const app = createApp(App)
 
@@ -15,7 +15,7 @@ app.use(router)
 app.use(PrimeVue, {
   ripple: true,
   theme: {
-    preset: legalBenchPreset,
+    preset: legalRosterPreset,
     options: {
       darkModeSelector: false,
     },

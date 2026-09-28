@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
-  <title id="title">Legal Bench logo</title>
-  <desc id="desc">Minimal baseball diamond logo with an LB monogram and Legal Bench wordmark.</desc>
+  <title id="title">Legal Roster logo</title>
+  <desc id="desc">Minimal baseball diamond logo with an LR monogram and Legal Roster wordmark.</desc>
 
   <defs>
     <style>
@@ -35,7 +35,7 @@
     <path d="M-28 150 H28 V174 L0 198 L-28 174 Z"
           fill="#1E73E8"/>
 
-    <!-- LB monogram -->
+    <!-- LR monogram -->
     <g transform="translate(-54 -55)">
       <!-- L -->
       <path d="M0 0 H22 V100 H78 V122 H0 Z"
@@ -68,7 +68,7 @@
           font-weight="700"
           letter-spacing="9">
       <tspan fill="#0B2A4A">LEGAL </tspan>
-      <tspan fill="#1E73E8">BENCH</tspan>
+      <tspan fill="#1E73E8">ROSTER</tspan>
     </text>
 
     <line x1="1005" y1="0" x2="1105" y2="0" stroke="#0B2A4A" stroke-width="6"/>

@@ -1,6 +1,6 @@
-# legal-bench
+# legal-roster
 
-Legal Bench is the Vue frontend. The sibling `../legal-bench-api` folder contains
+Legal Roster is the Vue frontend. The sibling `../legal-roster-api` folder contains
 the Go backend, API routes, database setup, and production static file server.
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -41,7 +41,7 @@ pnpm dev
 Run the Go API from the sibling folder in a second terminal:
 
 ```sh
-cd ../legal-bench-api
+cd ../legal-roster-api
 go run ./cmd/server
 ```
 
@@ -56,7 +56,7 @@ pnpm build
 Then run the sibling backend, which serves this app from `dist/`:
 
 ```sh
-cd ../legal-bench-api
+cd ../legal-roster-api
 go run ./cmd/server
 ```
 

@@ -1,9 +1,10 @@
 import { request } from '@/api/client'
+import { requireSupabaseConfig, supabase } from '@/lib/supabase'
 
-export type UserRole = 'platform_admin' | 'admin' | 'law_firm_user' | 'contractor' | 'reviewer'
+export type UserRole = 'platform_admin' | 'admin' | 'user'
 
 export interface CurrentUser {
-  id: number
+  id: string
   email: string
   name: string
   role: UserRole
@@ -15,29 +16,18 @@ export interface LoginPayload {
   password: string
 }
 
-export interface ActivatePayload {
-  token: string
-  password: string
-}
-
 export function getCurrentUser() {
   return request<CurrentUser>('/api/auth/me', { method: 'GET' })
 }
 
-export function login(payload: LoginPayload) {
-  return request<CurrentUser>('/api/auth/login', {
-    method: 'POST',
-    body: JSON.stringify(payload),
-  })
+export async function login(payload: LoginPayload) {
+  requireSupabaseConfig()
+  const { error } = await supabase.auth.signInWithPassword(payload)
+  if (error) throw error
+  return getCurrentUser()
 }
 
-export function activate(payload: ActivatePayload) {
-  return request<CurrentUser>('/api/auth/activate', {
-    method: 'POST',
-    body: JSON.stringify(payload),
-  })
-}
-
-export function logout() {
-  return request<{ status: string }>('/api/auth/logout', { method: 'POST' })
+export async function logout() {
+  const { error } = await supabase.auth.signOut()
+  if (error) throw error
 }

@@ -12,7 +12,7 @@ const router = useRouter()
 const auth = useAuthStore()
 
 const isPublicShellRoute = computed(() => Boolean(route.meta.publicShell))
-const isAuthRoute = computed(() => route.name === 'login' || route.name === 'activate')
+const isAuthRoute = computed(() => route.name === 'login')
 
 const navigationItems = computed<MenuItem[]>(() => [
   {
@@ -65,7 +65,7 @@ async function signOut() {
     >
       <div class="flex items-center justify-between gap-4">
         <RouterLink to="/" class="flex min-w-0 items-center">
-          <img class="h-12" :src="logo" alt="Legal Bench" />
+          <img class="h-12" :src="logo" alt="Legal Roster" />
           <span class="min-w-0">
             <span class="block truncate text-base font-semibold text-ink">Legal Roster</span>
             <span class="block truncate text-xs text-ink-muted">Evaluation workspace</span>
@@ -97,7 +97,7 @@ async function signOut() {
         </template>
       </Menu>
 
-      <div v-if="auth.isPlatformAdmin" class="mt-6 border-t border-border-soft pt-5">
+      <div v-if="auth.isAdmin" class="mt-6 border-t border-border-soft pt-5">
         <p class="mb-2 px-3 text-xs font-semibold uppercase tracking-wide text-ink-muted">
           Admin Management
         </p>

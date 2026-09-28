@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" role="img" aria-labelledby="title desc">
-  <title id="title">Legal Bench LB home plate icon</title>
+  <title id="title">Legal Roster LR home plate icon</title>
   <desc id="desc">Navy home plate outline with centered navy L, blue B, and blue diamond accent.</desc>
 
   <!-- Home plate outline -->
@@ -17,7 +17,7 @@
         stroke-linejoin="round"
         stroke-linecap="round"/>
 
-  <!-- Centered LB monogram -->
+  <!-- Centered LR monogram -->
   <g transform="translate(129 115)">
     <!-- L -->
     <path d="M0 0 H25 V132 H101 V157 H0 Z"

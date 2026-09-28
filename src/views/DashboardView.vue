@@ -37,7 +37,7 @@ const rejectedApplicantCount = computed(
 )
 
 async function loadJobMetrics() {
-  if (!auth.isPlatformAdmin) return
+  if (!auth.isAdmin) return
 
   hiringLoading.value = true
   hiringError.value = null
@@ -95,7 +95,7 @@ onMounted(loadJobMetrics)
       </Card>
     </div>
 
-    <section v-if="auth.isPlatformAdmin" class="flex flex-col gap-4">
+    <section v-if="auth.isAdmin" class="flex flex-col gap-4">
       <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p class="text-sm font-medium text-civic-700">Hiring</p>

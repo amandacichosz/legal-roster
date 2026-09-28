@@ -33,7 +33,7 @@ describe('App', () => {
       },
     })
 
-    expect(wrapper.text()).toContain('Legal Bench')
+    expect(wrapper.text()).toContain('Legal Roster')
     expect(wrapper.text()).toContain('Sign in')
   })
 })

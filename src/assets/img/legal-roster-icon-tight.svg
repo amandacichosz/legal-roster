@@ -2,8 +2,8 @@
      viewBox="0 0 440 440"
      role="img"
      aria-labelledby="title desc">
-  <title id="title">Legal Bench icon</title>
-  <desc id="desc">Baseball diamond icon with LB monogram.</desc>
+  <title id="title">Legal Roster icon</title>
+  <desc id="desc">Baseball diamond icon with LR monogram.</desc>
 
   <!-- Baseball diamond -->
   <g transform="translate(220 210)">
@@ -32,7 +32,7 @@
     <path d="M-26 132 H26 V154 L0 178 L-26 154 Z"
           fill="#1E73E8"/>
 
-    <!-- LB monogram -->
+    <!-- LR monogram -->
     <g transform="translate(-52 -58)">
       <!-- L -->
       <path d="M0 0 H22 V96 H76 V118 H0 Z"

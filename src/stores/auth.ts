@@ -1,7 +1,8 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import * as authApi from '@/api/auth'
-import type { ActivatePayload, CurrentUser, LoginPayload } from '@/api/auth'
+import type { CurrentUser, LoginPayload } from '@/api/auth'
+import { supabase } from '@/lib/supabase'
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<CurrentUser | null>(null)
@@ -10,7 +11,7 @@ export const useAuthStore = defineStore('auth', () => {
   const error = ref<string | null>(null)
 
   const isAuthenticated = computed(() => user.value !== null)
-  const isPlatformAdmin = computed(() => user.value?.role === 'platform_admin')
+  const isAdmin = computed(() => user.value?.role === 'platform_admin' || user.value?.role === 'admin')
 
   async function initialize() {
     if (initialized.value) return
@@ -18,7 +19,8 @@ export const useAuthStore = defineStore('auth', () => {
     loading.value = true
     error.value = null
     try {
-      user.value = await authApi.getCurrentUser()
+      const { data } = await supabase.auth.getSession()
+      user.value = data.session ? await authApi.getCurrentUser() : null
     } catch {
       user.value = null
     } finally {
@@ -34,19 +36,6 @@ export const useAuthStore = defineStore('auth', () => {
       user.value = await authApi.login(payload)
     } catch (err) {
       error.value = err instanceof Error ? err.message : 'Unable to sign in'
-      throw err
-    } finally {
-      loading.value = false
-    }
-  }
-
-  async function activate(payload: ActivatePayload) {
-    loading.value = true
-    error.value = null
-    try {
-      user.value = await authApi.activate(payload)
-    } catch (err) {
-      error.value = err instanceof Error ? err.message : 'Unable to activate account'
       throw err
     } finally {
       loading.value = false
@@ -70,10 +59,9 @@ export const useAuthStore = defineStore('auth', () => {
     initialized,
     error,
     isAuthenticated,
-    isPlatformAdmin,
+    isAdmin,
     initialize,
     login,
-    activate,
     logout,
   }
 })
